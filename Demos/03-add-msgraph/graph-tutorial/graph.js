@@ -13,11 +13,23 @@ module.exports = {
 
     const events = await client
       .api('/me/events')
+      // .api('/sites?search=*')
       .select('subject,organizer,start,end')
       .orderby('createdDateTime DESC')
       .get();
 
     return events;
+  },
+   getSites: async function(accessToken) {
+    const client = getAuthenticatedClient(accessToken);
+
+    const sites = await client
+      .api('/sites?search=*')
+      .select('siteCollection,displayName,webUrl,createdDateTime')
+      .orderby('createdDateTime DESC')
+      .get();
+
+    return sites;
   }
 };
 

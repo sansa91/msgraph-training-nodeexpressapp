@@ -33,6 +33,11 @@
                 <a href="/calendar" class="nav-link{{#if active.calendar}} active{{/if}}">Calendar</a>
               </li>
             {{/if}}
+                        {{#if user}}
+              <li class="nav-item" data-turbolinks="false">
+                <a href="/sharepointsites" class="nav-link{{#if active.sharepointsites}} active{{/if}}">SharePoint Sites</a>
+              </li>
+            {{/if}}
           </ul>
           <ul class="navbar-nav justify-content-end">
             <li class="nav-item">

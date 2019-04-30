@@ -1,4 +1,3 @@
-require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -89,6 +88,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var calendarRouter = require('./routes/calendar');
+var sharepointsitesRouter = require('./routes/sharepointsites');
 
 var app = express();
 
@@ -96,7 +96,7 @@ var app = express();
 // NOTE: Uses default in-memory session store, which is not
 // suitable for production
 app.use(session({
-  secret: 'your_secret_value_here',
+  secret: 'Sxou2FV*SWfH-txEd_0y*5H6fH/.yyF*',
   resave: false,
   saveUninitialized: false,
   unset: 'destroy'
@@ -155,6 +155,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/calendar', calendarRouter);
+app.use('/sharepointsites', sharepointsitesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
