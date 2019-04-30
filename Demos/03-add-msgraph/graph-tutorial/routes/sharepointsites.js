@@ -11,7 +11,7 @@ router.get('/',
       res.redirect('/')
     } else {
       let params = {
-        active: { calendar: true }
+        active: { sharepointsites: true }
       };
 
       // Get the access token
@@ -28,8 +28,8 @@ router.get('/',
       if (accessToken && accessToken.length > 0) {
         try {
           // Get the events
-          var events = await graph.getEvents(accessToken);
-          params.events = events.value;
+          var sites = await graph.getSites(accessToken);
+          params.sites = sites.value;
         } catch (err) {
           req.flash('error_msg', {
             message: 'Could not fetch events',
@@ -38,7 +38,7 @@ router.get('/',
         }
       }
 
-      res.render('calendar', params);
+      res.render('sharepointsites', params);
     }
   }
 );

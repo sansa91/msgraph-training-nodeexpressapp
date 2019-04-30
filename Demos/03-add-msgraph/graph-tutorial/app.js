@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,6 +9,7 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 var graph = require('./graph');
+
 
 // Configure simple-oauth2
 const oauth2 = require('simple-oauth2').create({
